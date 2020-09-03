@@ -90,13 +90,11 @@ public class Game {
      * @return is command valid
      */
     private boolean isCommandValid(String command) {
-        Set<String> typesOfPlayers = Set.of("user", "easy", "medium", "hard");
-
         String[] commandLine = command.split(" ");
         if (commandLine.length == 3) {
             return commandLine[0].equals("start")
-                    && typesOfPlayers.contains(commandLine[1])
-                    && typesOfPlayers.contains(commandLine[2]);
+                    && PlayerFactory.types.contains(commandLine[1])
+                    && PlayerFactory.types.contains(commandLine[2]);
         }
         return false;
     }

@@ -1,7 +1,5 @@
 package tictactoe;
 
-import tictactoe.Board;
-
 public class BoardCrawler {
     private final Board board;
 
