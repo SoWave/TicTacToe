@@ -2,6 +2,7 @@ package tictactoe;
 
 import org.junit.Assert;
 import org.junit.Test;
+import tictactoe.gameboard.Board;
 
 import java.awt.*;
 
@@ -9,7 +10,7 @@ public class BoardTest {
     @Test
     public void initializeBoardTest() {
         Board board = new Board();
-        board.initializeTable("_XX_OO_X_");
+        board.initializeTable("-XX-OO-X-");
         Assert.assertEquals(' ', board.getBoard()[0][0]);
         Assert.assertEquals('X', board.getBoard()[0][1]);
         Assert.assertEquals('X', board.getBoard()[0][2]);
@@ -24,7 +25,7 @@ public class BoardTest {
     @Test
     public void initializeBoardWithDifferentCharsTest() {
         Board board = new Board();
-        board.initializeTable("_XX-OOp.s");
+        board.initializeTable("-XX-OOp.s");
 
         Assert.assertEquals(' ', board.getBoard()[0][0]);
         Assert.assertEquals('X', board.getBoard()[0][1]);
@@ -46,14 +47,14 @@ public class BoardTest {
     @Test
     public void initializeBoardEvenTurnTest() {
         Board board = new Board();
-        board.initializeTable("_XX_OO___");
+        board.initializeTable("-XX-OO---");
         Assert.assertEquals('X', board.getCurrentTurnMark());
     }
 
     @Test
     public void initializeBoardOddTurnTest() {
         Board board = new Board();
-        board.initializeTable("_XX_OO_X_");
+        board.initializeTable("-XX-OO-X-");
         Assert.assertEquals('O', board.getCurrentTurnMark());
     }
 

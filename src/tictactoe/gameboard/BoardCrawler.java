@@ -1,4 +1,4 @@
-package tictactoe;
+package tictactoe.gameboard;
 
 public class BoardCrawler {
     private final Board board;

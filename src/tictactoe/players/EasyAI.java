@@ -1,6 +1,6 @@
 package tictactoe.players;
 
-import tictactoe.Board;
+import tictactoe.gameboard.Board;
 
 import java.awt.*;
 
@@ -13,7 +13,7 @@ public class EasyAI extends AIPlayer {
     /**
      * Find random coordinates
      * If in current row are 2 X find different field.
-     * Try it three times
+     * Try it five times
      *
      * @return valid coordinates
      */
@@ -21,7 +21,7 @@ public class EasyAI extends AIPlayer {
     public Dimension findField() {
         Dimension coordinates = null;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             coordinates = getRandomCoordinates();
             if (isItBadMove(coordinates)) {
                 break;

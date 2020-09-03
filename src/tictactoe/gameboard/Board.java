@@ -1,4 +1,4 @@
-package tictactoe;
+package tictactoe.gameboard;
 
 import java.awt.*;
 
