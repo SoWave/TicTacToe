@@ -21,7 +21,6 @@ public class Game {
      */
     public void startGame() {
         if (initializeCommand()) {
-            setEmptyTable();
             board.drawTable();
 
             playGame();
@@ -121,13 +120,6 @@ public class Game {
         Player currentPlayer = this.players.poll();
         currentPlayer.makeMove();
         this.players.offer(currentPlayer);
-    }
-
-    /**
-     * Set whole board with empty fields
-     */
-    private void setEmptyTable() {
-        board.initializeTable("_________");
     }
 
     /**

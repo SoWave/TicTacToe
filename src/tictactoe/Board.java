@@ -9,6 +9,7 @@ public class Board {
 
     public Board() {
         this.board = new char[3][3];
+        initializeTable("_________");
         this.isXTurn = true;
         this.boardChecker = new BoardCrawler(this);
     }
@@ -42,6 +43,11 @@ public class Board {
      * @param line sequence of chars (X, O, _)
      */
     public void initializeTable(String line) {
+        if (line.length() != 9) {
+            System.out.println("Bad data");
+            return;
+        }
+
         int indexCounter = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
