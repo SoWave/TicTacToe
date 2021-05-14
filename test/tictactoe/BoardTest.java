@@ -71,8 +71,8 @@ public class BoardTest {
     @Test
     public void putMarkOnBoardTest() {
         Board board = new Board();
-        board.putMark(new Dimension(2, 0));
-        board.putMark(new Dimension(1, 2));
+        board.setField(new Dimension(2, 0));
+        board.setField(new Dimension(1, 2));
 
         Assert.assertEquals('X', board.getBoard()[0][2]);
         Assert.assertEquals('O', board.getBoard()[2][1]);
@@ -81,7 +81,7 @@ public class BoardTest {
     @Test
     public void setFieldEmptyTest() {
         Board board = new Board();
-        board.putMark(new Dimension(2, 0));
+        board.setField(new Dimension(2, 0));
 
         Assert.assertEquals('X', board.getBoard()[0][2]);
         Assert.assertEquals('O', board.getCurrentTurnMark());
@@ -95,7 +95,7 @@ public class BoardTest {
     @Test
     public void isFieldEmptyTest() {
         Board board = new Board();
-        board.putMark(new Dimension(1, 0));
+        board.setField(new Dimension(1, 0));
 
         Assert.assertTrue(board.isFieldEmpty(new Dimension(0, 0)));
         Assert.assertFalse(board.isFieldEmpty(new Dimension(1, 0)));

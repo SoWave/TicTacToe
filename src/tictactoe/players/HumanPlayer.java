@@ -18,7 +18,7 @@ public class HumanPlayer implements Player {
     @Override
     public void makeMove() {
         Dimension coordinates = findField();
-        board.putMark(coordinates);
+        board.setField(coordinates);
         board.drawTable();
     }
 

@@ -73,7 +73,7 @@ public class Board {
      *
      * @param coordinates (vertical, horizontal)
      */
-    public void putMark(Dimension coordinates) {
+    public void setField(Dimension coordinates) {
         char mark = isXTurn ? 'X' : 'O';
         board[coordinates.height][coordinates.width] = mark;
         changeTurn();

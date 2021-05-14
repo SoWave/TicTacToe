@@ -25,7 +25,7 @@ public abstract class AIPlayer implements Player {
         System.out.println("Making move level \""+ type +"\"");
         Dimension coordinates = findField();
 
-        board.putMark(coordinates);
+        board.setField(coordinates);
         board.drawTable();
     }
 

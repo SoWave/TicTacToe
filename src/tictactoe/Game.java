@@ -3,7 +3,7 @@ package tictactoe;
 import tictactoe.gameboard.Board;
 import tictactoe.players.Player;
 import tictactoe.players.PlayerFactory;
-
+import tictactoe.InputScanner;
 import java.util.*;
 
 public class Game {

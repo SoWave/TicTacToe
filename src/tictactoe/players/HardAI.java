@@ -30,7 +30,7 @@ public class HardAI extends AIPlayer {
         int bestScore = -1000;
         Dimension move = new Dimension();
         for (Dimension spot: availableSpots) {
-            board.putMark(spot);
+            board.setField(spot);
             int score = miniMaxAlgorithm(board, 0, false);
 
             // undo
@@ -59,7 +59,7 @@ public class HardAI extends AIPlayer {
         if (isMaximizing) {
             bestScore = -1000;
             for (Dimension spot: availableSpots) {
-                board.putMark(spot);
+                board.setField(spot);
                 int score = miniMaxAlgorithm(board, depth + 1, !isMaximizing);
 
                 board.setFieldEmpty(spot);
@@ -68,7 +68,7 @@ public class HardAI extends AIPlayer {
         } else {
             bestScore = 1000;
             for (Dimension spot: availableSpots) {
-                board.putMark(spot);
+                board.setField(spot);
                 int score = miniMaxAlgorithm(board, depth + 1, !isMaximizing);
 
                 board.setFieldEmpty(spot);
