@@ -27,7 +27,7 @@ public class HardAI extends AIPlayer {
         Dimension move = new Dimension();
         for (Dimension spot: availableSpots) {
             board.setField(spot, sign);
-            int score = miniMaxAlgorithm(board, 0, false);
+            int score = miniMaxAlgorithm(board, false);
 
             // undo
             board.setField(spot, ' ');
@@ -40,13 +40,13 @@ public class HardAI extends AIPlayer {
         return move;
     }
 
-    private int miniMaxAlgorithm(Board board, int depth, boolean isMaximizing) {
+    private int miniMaxAlgorithm(Board board, boolean isMaximizing) {
         ArrayList<Dimension> availableSpots = getEmptySpots(board);
 
         if (boardChecker.isWinning(sign)) {
-            return 10 - depth;
+            return 10;
         } else if (boardChecker.isWinning(enemySign)) {
-            return -10 + depth;
+            return -10;
         } else if (availableSpots.size() == 0) {
             return 0;
         }
@@ -56,7 +56,7 @@ public class HardAI extends AIPlayer {
             bestScore = -1000;
             for (Dimension spot: availableSpots) {
                 board.setField(spot, sign);
-                int score = miniMaxAlgorithm(board, depth + 1, false);
+                int score = miniMaxAlgorithm(board, false);
 
                 board.setField(spot, ' ');
                 bestScore = Math.max(bestScore, score);
@@ -65,7 +65,7 @@ public class HardAI extends AIPlayer {
             bestScore = 1000;
             for (Dimension spot: availableSpots) {
                 board.setField(spot, enemySign);
-                int score = miniMaxAlgorithm(board, depth + 1, true);
+                int score = miniMaxAlgorithm(board,  true);
 
                 board.setField(spot, ' ');
                 bestScore = Math.min(bestScore, score);
