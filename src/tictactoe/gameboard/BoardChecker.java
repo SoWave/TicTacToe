@@ -1,9 +1,9 @@
 package tictactoe.gameboard;
 
-public class BoardCrawler {
+public class BoardChecker {
     private final Board board;
 
-    public BoardCrawler(Board board) {
+    public BoardChecker(Board board) {
         this.board = board;
     }
 
@@ -17,7 +17,7 @@ public class BoardCrawler {
     public int horizontalCheck(int verticalIndex, char mark) {
         int counter = 0;
         for (int i = 0; i < 3; i++) {
-            if (board.getBoard()[verticalIndex][i] == mark) {
+            if (board.at(verticalIndex, i) == mark) {
                 counter++;
             }
         }
@@ -34,7 +34,7 @@ public class BoardCrawler {
     public int verticalCheck(int horizontalIndex, char mark) {
         int counter = 0;
         for (int i = 0; i < 3; i++) {
-            if (board.getBoard()[i][horizontalIndex] == mark) {
+            if (board.at(i, horizontalIndex) == mark) {
                 counter++;
             }
         }
@@ -54,7 +54,7 @@ public class BoardCrawler {
     public int diagonalXCheck(char mark) {
         int counter = 0;
         for (int i = 0; i < 3; i++) {
-            if (board.getBoard()[i][i] == mark) {
+            if (board.at(i, i) == mark) {
                 counter++;
             }
         }
@@ -74,7 +74,7 @@ public class BoardCrawler {
     public int diagonalYCheck(char mark) {
         int counter = 0;
         for (int i = 0; i < 3; i++) {
-            if (board.getBoard()[i][2 - i] == mark) {
+            if (board.at(i, 2 - i) == mark) {
                 counter++;
             }
         }

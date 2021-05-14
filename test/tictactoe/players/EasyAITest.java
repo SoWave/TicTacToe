@@ -13,7 +13,7 @@ public class EasyAITest {
 
             Player easyAI = new EasyAI(board);
             easyAI.makeMove();
-            Assert.assertNotEquals('X', board.getBoard()[1][2]);
+            Assert.assertNotEquals('X', board.at(1, 2));
         }
     }
 
@@ -25,7 +25,7 @@ public class EasyAITest {
 
             Player easyAI = new EasyAI(board);
             easyAI.makeMove();
-            Assert.assertNotEquals('X', board.getBoard()[0][2]);
+            Assert.assertNotEquals('X', board.at(0, 2));
         }
     }
 }

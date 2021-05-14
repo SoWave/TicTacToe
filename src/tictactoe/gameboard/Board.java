@@ -5,13 +5,13 @@ import java.awt.*;
 public class Board {
     private final char[][] board;
     private boolean isXTurn;
-    private final BoardCrawler boardChecker;
+    private final BoardChecker boardChecker;
 
     public Board() {
         this.board = new char[3][3];
         initializeTable("_________");
         this.isXTurn = true;
-        this.boardChecker = new BoardCrawler(this);
+        this.boardChecker = new BoardChecker(this);
     }
 
     /**
@@ -26,9 +26,13 @@ public class Board {
                 sb.append(board[i][j]).append(" ");
             }
             sb.append("|");
-            System.out.println(sb.toString());
+            System.out.println(sb);
         }
         System.out.println("---------");
+    }
+
+    public char at(int height, int width) {
+        return board[height][width];
     }
 
     /**
@@ -124,21 +128,12 @@ public class Board {
     }
 
     /**
-     * Method for ai to find best possible fields
-     *
-     * @return board
-     */
-    public char[][] getBoard() {
-        return board;
-    }
-
-    /**
      * Return helper class that iterates in every angle and
      * checks if there are selected marks.
      *
      * @return helper class BoardCrawler
      */
-    public BoardCrawler crawler() {
+    public BoardChecker crawler() {
         return boardChecker;
     }
 }

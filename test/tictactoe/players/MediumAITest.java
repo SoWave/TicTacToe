@@ -12,7 +12,7 @@ public class MediumAITest {
 
         Player mediumAi = new MediumAI(board);
         mediumAi.makeMove();
-        Assert.assertEquals('X', board.getBoard()[1][2]);
+        Assert.assertEquals('X', board.at(1, 2));
     }
 
     @Test
@@ -22,6 +22,6 @@ public class MediumAITest {
 
         Player mediumAI = new MediumAI(board);
         mediumAI.makeMove();
-        Assert.assertEquals('X', board.getBoard()[0][2]);
+        Assert.assertEquals('X', board.at(0, 2));
     }
 }

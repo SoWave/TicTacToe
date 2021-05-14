@@ -82,7 +82,7 @@ public class HardAI extends AIPlayer {
         ArrayList<Dimension> emptySpots = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (board.getBoard()[i][j] == ' ') {
+                if (board.at(i, j) == ' ') {
                     emptySpots.add(new Dimension(j, i));
                 }
             }

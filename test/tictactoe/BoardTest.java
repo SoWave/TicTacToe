@@ -11,15 +11,15 @@ public class BoardTest {
     public void initializeBoardTest() {
         Board board = new Board();
         board.initializeTable("-XX-OO-X-");
-        Assert.assertEquals(' ', board.getBoard()[0][0]);
-        Assert.assertEquals('X', board.getBoard()[0][1]);
-        Assert.assertEquals('X', board.getBoard()[0][2]);
-        Assert.assertEquals(' ', board.getBoard()[1][0]);
-        Assert.assertEquals('O', board.getBoard()[1][1]);
-        Assert.assertEquals('O', board.getBoard()[1][2]);
-        Assert.assertEquals(' ', board.getBoard()[2][0]);
-        Assert.assertEquals('X', board.getBoard()[2][1]);
-        Assert.assertEquals(' ', board.getBoard()[2][2]);
+        Assert.assertEquals(' ', board.at(0, 0));
+        Assert.assertEquals('X', board.at(0, 1));
+        Assert.assertEquals('X', board.at(0, 2));
+        Assert.assertEquals(' ', board.at(1, 0));
+        Assert.assertEquals('O', board.at(1, 1));
+        Assert.assertEquals('O', board.at(1, 2));
+        Assert.assertEquals(' ', board.at(2, 0));
+        Assert.assertEquals('X', board.at(2, 1));
+        Assert.assertEquals(' ', board.at(2, 2));
     }
 
     @Test
@@ -27,15 +27,15 @@ public class BoardTest {
         Board board = new Board();
         board.initializeTable("-XX-OOp.s");
 
-        Assert.assertEquals(' ', board.getBoard()[0][0]);
-        Assert.assertEquals('X', board.getBoard()[0][1]);
-        Assert.assertEquals('X', board.getBoard()[0][2]);
-        Assert.assertEquals(' ', board.getBoard()[1][0]);
-        Assert.assertEquals('O', board.getBoard()[1][1]);
-        Assert.assertEquals('O', board.getBoard()[1][2]);
-        Assert.assertEquals(' ', board.getBoard()[2][0]);
-        Assert.assertEquals(' ', board.getBoard()[2][1]);
-        Assert.assertEquals(' ', board.getBoard()[2][2]);
+        Assert.assertEquals(' ', board.at(0, 0));
+        Assert.assertEquals('X', board.at(0, 1));
+        Assert.assertEquals('X', board.at(0, 2));
+        Assert.assertEquals(' ', board.at(1, 0));
+        Assert.assertEquals('O', board.at(1, 1));
+        Assert.assertEquals('O', board.at(1, 2));
+        Assert.assertEquals(' ', board.at(2, 0));
+        Assert.assertEquals(' ', board.at(2, 1));
+        Assert.assertEquals(' ', board.at(2, 2));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class BoardTest {
         Board board = new Board();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                Assert.assertEquals(' ', board.getBoard()[i][j]);
+                Assert.assertEquals(' ', board.at(i, j));
             }
         }
     }
@@ -74,8 +74,8 @@ public class BoardTest {
         board.setField(new Dimension(2, 0));
         board.setField(new Dimension(1, 2));
 
-        Assert.assertEquals('X', board.getBoard()[0][2]);
-        Assert.assertEquals('O', board.getBoard()[2][1]);
+        Assert.assertEquals('X', board.at(0, 2));
+        Assert.assertEquals('O', board.at(2, 1));
     }
 
     @Test
@@ -83,12 +83,12 @@ public class BoardTest {
         Board board = new Board();
         board.setField(new Dimension(2, 0));
 
-        Assert.assertEquals('X', board.getBoard()[0][2]);
+        Assert.assertEquals('X', board.at(0, 2));
         Assert.assertEquals('O', board.getCurrentTurnMark());
 
         board.setFieldEmpty(new Dimension(2, 0));
 
-        Assert.assertEquals(' ', board.getBoard()[0][2]);
+        Assert.assertEquals(' ', board.at(0, 2));
         Assert.assertEquals('X', board.getCurrentTurnMark());
     }
 

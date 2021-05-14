@@ -12,7 +12,7 @@ public class HardAITest {
 
         Player hardAI = new HardAI(board);
         hardAI.makeMove();
-        Assert.assertEquals('X', board.getBoard()[1][2]);
+        Assert.assertEquals('X', board.at(1, 2));
     }
 
     @Test
@@ -22,7 +22,7 @@ public class HardAITest {
 
         Player hardAI = new HardAI(board);
         hardAI.makeMove();
-        Assert.assertEquals('X', board.getBoard()[0][2]);
+        Assert.assertEquals('X', board.at(0, 2));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class HardAITest {
 
         Player hardAI = new HardAI(board);
         hardAI.makeMove();
-        Assert.assertEquals('X', board.getBoard()[1][1]);
+        Assert.assertEquals('X', board.at(1, 1));
     }
 
     @Test
@@ -42,7 +42,7 @@ public class HardAITest {
 
         Player hardAI = new HardAI(board);
         hardAI.makeMove();
-        Assert.assertEquals('O', board.getBoard()[1][1]);
+        Assert.assertEquals('O', board.at(1, 1));
     }
 
     @Test
@@ -52,6 +52,6 @@ public class HardAITest {
 
         Player hardAI = new HardAI(board);
         hardAI.makeMove();
-        Assert.assertEquals('X', board.getBoard()[2][0]);
+        Assert.assertEquals('X', board.at(2, 0));
     }
 }
