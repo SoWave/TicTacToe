@@ -1,8 +1,7 @@
 package tictactoe.players;
 
+import tictactoe.Game;
 import tictactoe.gameboard.Board;
-import tictactoe.InputScanner;
-
 import java.awt.*;
 
 public class HumanPlayer implements Player {
@@ -36,7 +35,7 @@ public class HumanPlayer implements Player {
 
         while (!fieldFound) {
             System.out.println("Enter the coordinates:");
-            String input = InputScanner.getInstance().getScanner().nextLine();
+            String input = Game.GAME_SCANNER.nextLine();
 
             if (input.matches("\\d\\s\\d")) {
                 String[] index = input.split(" ");

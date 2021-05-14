@@ -3,10 +3,10 @@ package tictactoe;
 import tictactoe.gameboard.Board;
 import tictactoe.players.Player;
 import tictactoe.players.PlayerFactory;
-import tictactoe.InputScanner;
 import java.util.*;
 
 public class Game {
+    public static final Scanner GAME_SCANNER = new Scanner(System.in);
     private final Board board;
     private Queue<Player> players;
 
@@ -48,7 +48,7 @@ public class Game {
         String command;
         while (true) {
             System.out.println("Input command:");
-            command = InputScanner.getInstance().getScanner().nextLine();
+            command = GAME_SCANNER.nextLine();
 
             if (command.equals("exit")) {
                 return false;
