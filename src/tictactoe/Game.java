@@ -4,7 +4,10 @@ import tictactoe.gameboard.Board;
 import tictactoe.gameboard.BoardChecker;
 import tictactoe.players.Player;
 import tictactoe.players.PlayerFactory;
-import java.util.*;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class Game {
     public static final Scanner GAME_SCANNER = new Scanner(System.in);
@@ -90,8 +93,10 @@ public class Game {
 
     private void playTurn() {
         Player currentPlayer = this.players.poll();
-        currentPlayer.makeMove();
-        this.players.offer(currentPlayer);
+        if (currentPlayer != null) {
+            currentPlayer.makeMove();
+            this.players.offer(currentPlayer);
+        }
     }
 
     private boolean checkStateOfGame() {

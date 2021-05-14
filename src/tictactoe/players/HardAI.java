@@ -60,7 +60,7 @@ public class HardAI extends AIPlayer {
             bestScore = -1000;
             for (Dimension spot: availableSpots) {
                 board.setField(spot);
-                int score = miniMaxAlgorithm(board, depth + 1, !isMaximizing);
+                int score = miniMaxAlgorithm(board, depth + 1, false);
 
                 board.setFieldEmpty(spot);
                 bestScore = Math.max(bestScore, score);
@@ -69,7 +69,7 @@ public class HardAI extends AIPlayer {
             bestScore = 1000;
             for (Dimension spot: availableSpots) {
                 board.setField(spot);
-                int score = miniMaxAlgorithm(board, depth + 1, !isMaximizing);
+                int score = miniMaxAlgorithm(board, depth + 1, true);
 
                 board.setFieldEmpty(spot);
                 bestScore = Math.min(bestScore, score);
