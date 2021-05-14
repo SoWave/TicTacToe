@@ -91,13 +91,13 @@ public class BoardChecker {
      */
     public boolean isWinning(char mark) {
         for (int i = 0; i < 3; i++) {
-            if (board.crawler().horizontalCheck(i, mark) == 3
-                    || board.crawler().verticalCheck(i, mark) == 3) {
+            if (horizontalCheck(i, mark) == 3
+                    || verticalCheck(i, mark) == 3) {
                 return true;
             }
         }
 
-        return board.crawler().diagonalXCheck(mark) == 3
-                || board.crawler().diagonalYCheck(mark) == 3;
+        return diagonalXCheck(mark) == 3
+                || diagonalYCheck(mark) == 3;
     }
 }

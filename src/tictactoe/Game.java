@@ -1,6 +1,7 @@
 package tictactoe;
 
 import tictactoe.gameboard.Board;
+import tictactoe.gameboard.BoardChecker;
 import tictactoe.players.Player;
 import tictactoe.players.PlayerFactory;
 import java.util.*;
@@ -8,10 +9,12 @@ import java.util.*;
 public class Game {
     public static final Scanner GAME_SCANNER = new Scanner(System.in);
     private final Board board;
+    private final BoardChecker boardChecker;
     private Queue<Player> players;
 
     public Game() {
         this.board = new Board();
+        boardChecker = new BoardChecker(board);
     }
 
     /**
@@ -93,8 +96,8 @@ public class Game {
 
     private boolean checkStateOfGame() {
         boolean inGame = true;
-        boolean xWins = board.crawler().isWinning('X');
-        boolean oWins = board.crawler().isWinning('O');
+        boolean xWins = boardChecker.isWinning('X');
+        boolean oWins = boardChecker.isWinning('O');
 
         if (xWins) {
             System.out.println("X wins");

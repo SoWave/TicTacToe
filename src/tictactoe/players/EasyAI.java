@@ -39,14 +39,14 @@ public class EasyAI extends AIPlayer {
     }
 
     private boolean checkCoordinatesFor2SameMarks(Dimension coordinates, char mark) {
-        if (board.crawler().horizontalCheck(coordinates.height, mark) == 2
-                || board.crawler().verticalCheck(coordinates.width, mark) == 2) {
+        if (boardChecker.horizontalCheck(coordinates.height, mark) == 2
+                || boardChecker.verticalCheck(coordinates.width, mark) == 2) {
             return true;
         }
 
         if (coordinates.height + coordinates.width % 2 == 0) {
-            return board.crawler().diagonalXCheck(mark) == 2
-                    || board.crawler().diagonalYCheck(mark) == 2;
+            return boardChecker.diagonalXCheck(mark) == 2
+                    || boardChecker.diagonalYCheck(mark) == 2;
         }
 
         return false;

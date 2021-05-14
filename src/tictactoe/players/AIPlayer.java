@@ -1,17 +1,20 @@
 package tictactoe.players;
 
 import tictactoe.gameboard.Board;
+import tictactoe.gameboard.BoardChecker;
 
 import java.awt.*;
 import java.util.Random;
 
 public abstract class AIPlayer implements Player {
     protected final Board board;
+    protected final BoardChecker boardChecker;
     protected final Random random;
     private final String type;
 
     public AIPlayer(Board board, String type) {
         this.board = board;
+        boardChecker = new BoardChecker(board);
         this.random = new Random();
         this.type = type;
     }

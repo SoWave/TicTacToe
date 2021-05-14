@@ -5,13 +5,11 @@ import java.awt.*;
 public class Board {
     private final char[][] board;
     private boolean isXTurn;
-    private final BoardChecker boardChecker;
 
     public Board() {
         this.board = new char[3][3];
         initializeTable("_________");
         this.isXTurn = true;
-        this.boardChecker = new BoardChecker(this);
     }
 
     /**
@@ -125,15 +123,5 @@ public class Board {
      */
     public char getOppositeMark() {
         return  isXTurn ? 'O' : 'X';
-    }
-
-    /**
-     * Return helper class that iterates in every angle and
-     * checks if there are selected marks.
-     *
-     * @return helper class BoardCrawler
-     */
-    public BoardChecker crawler() {
-        return boardChecker;
     }
 }

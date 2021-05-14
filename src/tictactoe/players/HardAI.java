@@ -47,9 +47,9 @@ public class HardAI extends AIPlayer {
     private int miniMaxAlgorithm(Board board, int depth, boolean isMaximizing) {
         ArrayList<Dimension> availableSpots = getEmptySpots(board);
 
-        if (board.crawler().isWinning(mySign)) {
+        if (boardChecker.isWinning(mySign)) {
             return 10 - depth;
-        } else if (board.crawler().isWinning(enemySign)) {
+        } else if (boardChecker.isWinning(enemySign)) {
             return -10 + depth;
         } else if (availableSpots.size() == 0) {
             return 0;

@@ -29,18 +29,18 @@ public class MediumAI extends AIPlayer {
 
     private Dimension findGoodCoordinates(char mark) {
         for (int i = 0; i < 3; i++) {
-            if (board.crawler().horizontalCheck(i, mark) == 2) {
+            if (boardChecker.horizontalCheck(i, mark) == 2) {
                 return searchRowForFreeHorizontalSpot(i);
             }
-            if (board.crawler().verticalCheck(i, mark) == 2) {
+            if (boardChecker.verticalCheck(i, mark) == 2) {
                 return searchRowForFreeVerticalSpot(i);
             }
         }
 
-        if (board.crawler().diagonalXCheck(mark) == 2) {
+        if (boardChecker.diagonalXCheck(mark) == 2) {
             return searchRowForFreeXDiagonalSpot();
         }
-        if (board.crawler().diagonalYCheck(mark) == 2) {
+        if (boardChecker.diagonalYCheck(mark) == 2) {
             return searchRowForFreeYDiagonalSpot();
         }
 
