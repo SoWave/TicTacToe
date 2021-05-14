@@ -9,12 +9,16 @@ import java.util.Random;
 public abstract class AIPlayer implements Player {
     protected final Board board;
     protected final BoardChecker boardChecker;
+    protected final char sign;
+    protected final char enemySign;
     protected final Random random;
     private final String type;
 
-    public AIPlayer(Board board, String type) {
+    public AIPlayer(Board board, String type, char sign) {
         this.board = board;
         boardChecker = new BoardChecker(board);
+        this.sign = sign;
+        this.enemySign = sign == 'X' ? 'O' : 'X';
         this.random = new Random();
         this.type = type;
     }
@@ -28,7 +32,7 @@ public abstract class AIPlayer implements Player {
         System.out.println("Making move level \""+ type +"\"");
         Dimension coordinates = findField();
 
-        board.setField(coordinates);
+        board.setField(coordinates, sign);
         board.drawTable();
     }
 

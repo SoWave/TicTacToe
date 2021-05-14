@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class MediumAI extends AIPlayer {
 
-    public MediumAI(Board board) {
-        super(board, "medium");
+    public MediumAI(Board board, char sign) {
+        super(board, "medium", sign);
     }
 
     /**
@@ -19,9 +19,9 @@ public class MediumAI extends AIPlayer {
      */
     @Override
     public Dimension findField() {
-        Dimension coordinates = findGoodCoordinates(board.getCurrentTurnMark());
+        Dimension coordinates = findGoodCoordinates(sign);
         if (coordinates == null) {
-            coordinates = findGoodCoordinates(board.getOppositeMark());
+            coordinates = findGoodCoordinates(enemySign);
         }
 
         return coordinates == null ? getRandomCoordinates() : coordinates;

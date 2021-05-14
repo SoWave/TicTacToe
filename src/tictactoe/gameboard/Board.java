@@ -4,12 +4,10 @@ import java.awt.*;
 
 public class Board {
     private final char[][] board;
-    private boolean isXTurn;
 
     public Board() {
         this.board = new char[3][3];
         initializeTable("_________");
-        this.isXTurn = true;
     }
 
     /**
@@ -56,10 +54,8 @@ public class Board {
                 char val = line.charAt(indexCounter++);
                 switch (val) {
                     case 'X': board[i][j] = 'X';
-                        changeTurn();
                         break;
                     case 'O': board[i][j] = 'O';
-                        changeTurn();
                         break;
                     default: board[i][j] = ' ';
                         break;
@@ -71,25 +67,12 @@ public class Board {
     /**
      * Check which one's turn is
      * then insert mark to field
-     * then change turn of Mark
      *
      * @param coordinates (vertical, horizontal)
+     * @param sign sign to place
      */
-    public void setField(Dimension coordinates) {
-        char mark = isXTurn ? 'X' : 'O';
-        board[coordinates.height][coordinates.width] = mark;
-        changeTurn();
-    }
-
-    /**
-     * Undo field.
-     * Set field at coordinates to empty field.
-     *
-     * @param coordinates - index of the field
-     */
-    public void setFieldEmpty(Dimension coordinates) {
-        board[coordinates.height][coordinates.width] = ' ';
-        changeTurn();
+    public void setField(Dimension coordinates, char sign) {
+        board[coordinates.height][coordinates.width] = sign;
     }
 
     /**
@@ -98,30 +81,5 @@ public class Board {
      */
     public boolean isFieldEmpty(Dimension coordinates) {
         return board[coordinates.height][coordinates.width] == ' ';
-    }
-
-    /**
-     * Change turn X is true O is false
-     */
-    private void changeTurn() {
-        this.isXTurn = !isXTurn;
-    }
-
-    /**
-     * Return current turn mark
-     *
-     * @return current turn mark
-     */
-    public char getCurrentTurnMark() {
-        return isXTurn ? 'X' : 'O';
-    }
-
-    /**
-     * Return opposite mark
-     *
-     * @return opposite sign
-     */
-    public char getOppositeMark() {
-        return  isXTurn ? 'O' : 'X';
     }
 }

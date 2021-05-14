@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class EasyAI extends AIPlayer {
 
-    public EasyAI(Board board) {
-        super(board, "easy");
+    public EasyAI(Board board, char sign) {
+        super(board, "easy", sign);
     }
 
     /**
@@ -31,9 +31,9 @@ public class EasyAI extends AIPlayer {
     }
 
     private boolean isItBadMove(Dimension coordinates) {
-        boolean isWinningMove = checkCoordinatesFor2SameMarks(coordinates, board.getCurrentTurnMark());
+        boolean isWinningMove = checkCoordinatesFor2SameMarks(coordinates, sign);
         boolean isBlocking = checkCoordinatesFor2SameMarks(
-                coordinates, board.getOppositeMark());
+                coordinates, enemySign);
 
         return !(isWinningMove || isBlocking);
     }

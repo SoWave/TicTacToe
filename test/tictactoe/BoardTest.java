@@ -39,26 +39,6 @@ public class BoardTest {
     }
 
     @Test
-    public void initializeBoardStartingTurnMarkIsXTest() {
-        Board board = new Board();
-        Assert.assertEquals('X', board.getCurrentTurnMark());
-    }
-
-    @Test
-    public void initializeBoardEvenTurnTest() {
-        Board board = new Board();
-        board.initializeTable("-XX-OO---");
-        Assert.assertEquals('X', board.getCurrentTurnMark());
-    }
-
-    @Test
-    public void initializeBoardOddTurnTest() {
-        Board board = new Board();
-        board.initializeTable("-XX-OO-X-");
-        Assert.assertEquals('O', board.getCurrentTurnMark());
-    }
-
-    @Test
     public void createEmptyBoardTest() {
         Board board = new Board();
         for (int i = 0; i < 3; i++) {
@@ -71,40 +51,19 @@ public class BoardTest {
     @Test
     public void putMarkOnBoardTest() {
         Board board = new Board();
-        board.setField(new Dimension(2, 0));
-        board.setField(new Dimension(1, 2));
+        board.setField(new Dimension(2, 0), 'X');
+        board.setField(new Dimension(1, 2), 'O');
 
         Assert.assertEquals('X', board.at(0, 2));
         Assert.assertEquals('O', board.at(2, 1));
     }
 
     @Test
-    public void setFieldEmptyTest() {
-        Board board = new Board();
-        board.setField(new Dimension(2, 0));
-
-        Assert.assertEquals('X', board.at(0, 2));
-        Assert.assertEquals('O', board.getCurrentTurnMark());
-
-        board.setFieldEmpty(new Dimension(2, 0));
-
-        Assert.assertEquals(' ', board.at(0, 2));
-        Assert.assertEquals('X', board.getCurrentTurnMark());
-    }
-
-    @Test
     public void isFieldEmptyTest() {
         Board board = new Board();
-        board.setField(new Dimension(1, 0));
+        board.setField(new Dimension(1, 0), 'X');
 
         Assert.assertTrue(board.isFieldEmpty(new Dimension(0, 0)));
         Assert.assertFalse(board.isFieldEmpty(new Dimension(1, 0)));
-    }
-
-    @Test
-    public void getOppositeSignTest() {
-        Board board = new Board();
-        Assert.assertEquals('X', board.getCurrentTurnMark());
-        Assert.assertEquals('O', board.getOppositeMark());
     }
 }

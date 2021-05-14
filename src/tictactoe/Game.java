@@ -68,8 +68,8 @@ public class Game {
         String type1 = command.split(" ")[1];
         String type2 = command.split(" ")[2];
 
-        Player player1 = PlayerFactory.createPlayer(type1, board);
-        Player player2 = PlayerFactory.createPlayer(type2, board);
+        Player player1 = PlayerFactory.createPlayer(type1, board, 'X');
+        Player player2 = PlayerFactory.createPlayer(type2, board, 'O');
 
         setPlayers(player1, player2);
         return true;

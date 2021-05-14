@@ -6,12 +6,9 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class HardAI extends AIPlayer {
-    private char mySign;
-    private char enemySign;
 
-    public HardAI(Board board) {
-        super(board, "hard");
-        this.mySign = ' ';
+    public HardAI(Board board, char sign) {
+        super(board, "hard", sign);
     }
 
     /**
@@ -25,16 +22,15 @@ public class HardAI extends AIPlayer {
     public Dimension findField() {
         ArrayList<Dimension> availableSpots = getEmptySpots(board);
         // set marks to process in algorithm
-        setMarks();
 
         int bestScore = -1000;
         Dimension move = new Dimension();
         for (Dimension spot: availableSpots) {
-            board.setField(spot);
+            board.setField(spot, sign);
             int score = miniMaxAlgorithm(board, 0, false);
 
             // undo
-            board.setFieldEmpty(spot);
+            board.setField(spot, ' ');
             if (score > bestScore) {
                 bestScore = score;
                 move = spot;
@@ -47,7 +43,7 @@ public class HardAI extends AIPlayer {
     private int miniMaxAlgorithm(Board board, int depth, boolean isMaximizing) {
         ArrayList<Dimension> availableSpots = getEmptySpots(board);
 
-        if (boardChecker.isWinning(mySign)) {
+        if (boardChecker.isWinning(sign)) {
             return 10 - depth;
         } else if (boardChecker.isWinning(enemySign)) {
             return -10 + depth;
@@ -59,19 +55,19 @@ public class HardAI extends AIPlayer {
         if (isMaximizing) {
             bestScore = -1000;
             for (Dimension spot: availableSpots) {
-                board.setField(spot);
+                board.setField(spot, sign);
                 int score = miniMaxAlgorithm(board, depth + 1, false);
 
-                board.setFieldEmpty(spot);
+                board.setField(spot, ' ');
                 bestScore = Math.max(bestScore, score);
             }
         } else {
             bestScore = 1000;
             for (Dimension spot: availableSpots) {
-                board.setField(spot);
+                board.setField(spot, enemySign);
                 int score = miniMaxAlgorithm(board, depth + 1, true);
 
-                board.setFieldEmpty(spot);
+                board.setField(spot, ' ');
                 bestScore = Math.min(bestScore, score);
             }
         }
@@ -88,12 +84,5 @@ public class HardAI extends AIPlayer {
             }
         }
         return emptySpots;
-    }
-
-    private void setMarks() {
-        if (mySign == ' ') {
-            mySign = board.getCurrentTurnMark();
-            enemySign = board.getOppositeMark();
-        }
     }
 }

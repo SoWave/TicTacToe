@@ -10,7 +10,7 @@ public class HardAITest {
         Board board = new Board();
         board.initializeTable("X--OO#-X-");
 
-        Player hardAI = new HardAI(board);
+        Player hardAI = new HardAI(board, 'X');
         hardAI.makeMove();
         Assert.assertEquals('X', board.at(1, 2));
     }
@@ -20,7 +20,7 @@ public class HardAITest {
         Board board = new Board();
         board.initializeTable("XX#O-O---");
 
-        Player hardAI = new HardAI(board);
+        Player hardAI = new HardAI(board, 'X');
         hardAI.makeMove();
         Assert.assertEquals('X', board.at(0, 2));
     }
@@ -30,7 +30,7 @@ public class HardAITest {
         Board board = new Board();
         board.initializeTable("O-XX-X-OO");
 
-        Player hardAI = new HardAI(board);
+        Player hardAI = new HardAI(board, 'X');
         hardAI.makeMove();
         Assert.assertEquals('X', board.at(1, 1));
     }
@@ -40,7 +40,7 @@ public class HardAITest {
         Board board = new Board();
         board.initializeTable("X--------");
 
-        Player hardAI = new HardAI(board);
+        Player hardAI = new HardAI(board, 'O');
         hardAI.makeMove();
         Assert.assertEquals('O', board.at(1, 1));
     }
@@ -50,7 +50,7 @@ public class HardAITest {
         Board board = new Board();
         board.initializeTable("XXO-O----");
 
-        Player hardAI = new HardAI(board);
+        Player hardAI = new HardAI(board, 'X');
         hardAI.makeMove();
         Assert.assertEquals('X', board.at(2, 0));
     }

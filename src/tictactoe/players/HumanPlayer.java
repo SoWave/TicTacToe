@@ -6,9 +6,12 @@ import java.awt.*;
 
 public class HumanPlayer implements Player {
     private final Board board;
+    private final char sign;
 
-    public HumanPlayer(Board board) {
+    public HumanPlayer(Board board, char sign)
+    {
         this.board = board;
+        this.sign = sign;
     }
 
     /**
@@ -17,7 +20,7 @@ public class HumanPlayer implements Player {
     @Override
     public void makeMove() {
         Dimension coordinates = findField();
-        board.setField(coordinates);
+        board.setField(coordinates, sign);
         board.drawTable();
     }
 

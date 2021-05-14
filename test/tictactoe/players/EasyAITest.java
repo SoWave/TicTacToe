@@ -11,7 +11,7 @@ public class EasyAITest {
             Board board = new Board();
             board.initializeTable("X--OO#-X-");
 
-            Player easyAI = new EasyAI(board);
+            Player easyAI = new EasyAI(board, 'X');
             easyAI.makeMove();
             Assert.assertNotEquals('X', board.at(1, 2));
         }
@@ -23,7 +23,7 @@ public class EasyAITest {
             Board board = new Board();
             board.initializeTable("XX#O-O---");
 
-            Player easyAI = new EasyAI(board);
+            Player easyAI = new EasyAI(board, 'X');
             easyAI.makeMove();
             Assert.assertNotEquals('X', board.at(0, 2));
         }
