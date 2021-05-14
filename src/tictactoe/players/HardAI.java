@@ -44,26 +44,9 @@ public class HardAI extends AIPlayer {
         return move;
     }
 
-    /**
-     * MiniMax algorithm.
-     * Check every possible move and count score for them.
-     * Score is counted when terminal state is up - maximizing player
-     * wins, minimizing player wins or there are no empty fields left and round
-     * ends with a tie.
-     * Score is sum of terminal state and depth - higher depth -> lower score.
-     *
-     * If is maximizing player count max score else count min score.
-     *
-     * @param board - board to use algorithm on
-     * @param depth - current depth of recursion
-     * @param isMaximizing - is maximizing player round
-     * @return - score of field
-     */
     private int miniMaxAlgorithm(Board board, int depth, boolean isMaximizing) {
-        // get every available fields
         ArrayList<Dimension> availableSpots = getEmptySpots(board);
 
-        // terminal states
         if (board.crawler().isWinning(mySign)) {
             return 10 - depth;
         } else if (board.crawler().isWinning(enemySign)) {
@@ -72,8 +55,6 @@ public class HardAI extends AIPlayer {
             return 0;
         }
 
-        // is maximizing one round count max else count min
-        // place sign in available spot count score then undo move
         int bestScore;
         if (isMaximizing) {
             bestScore = -1000;
@@ -97,12 +78,6 @@ public class HardAI extends AIPlayer {
         return bestScore;
     }
 
-    /**
-     * Get every available field
-     *
-     * @param board - board to search in
-     * @return - list of empty fields
-     */
     private ArrayList<Dimension> getEmptySpots(Board board) {
         ArrayList<Dimension> emptySpots = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
@@ -115,9 +90,6 @@ public class HardAI extends AIPlayer {
         return emptySpots;
     }
 
-    /**
-     * Set marks if not yet saved
-     */
     private void setMarks() {
         if (mySign == ' ') {
             mySign = board.getCurrentTurnMark();

@@ -27,12 +27,6 @@ public class MediumAI extends AIPlayer {
         return coordinates == null ? getRandomCoordinates() : coordinates;
     }
 
-    /**
-     * Check is there field for instant win or blocking enemy,
-     * if yes return these coordinates, else return random coordinates
-     *
-     * @return winning, blocking coordinates or random coordinates
-     */
     private Dimension findGoodCoordinates(char mark) {
         for (int i = 0; i < 3; i++) {
             if (board.crawler().horizontalCheck(i, mark) == 2) {
@@ -53,11 +47,6 @@ public class MediumAI extends AIPlayer {
         return null;
     }
 
-    /**
-     * Checks selected horizontal row for free field:
-     *
-     * @return found empty field in row
-     */
     private Dimension searchRowForFreeHorizontalSpot(int verticalIndex) {
         for (int i = 0; i < 3; i++) {
             if (board.isFieldEmpty(new Dimension(i, verticalIndex))) {
@@ -67,11 +56,6 @@ public class MediumAI extends AIPlayer {
         return null;
     }
 
-    /**
-     * Checks selected vertical row for free field:
-     *
-     * @return found empty field in column
-     */
     private Dimension searchRowForFreeVerticalSpot(int horizontalIndex) {
         for (int i = 0; i < 3; i++) {
             if (board.isFieldEmpty(new Dimension(horizontalIndex, i))) {
@@ -81,15 +65,6 @@ public class MediumAI extends AIPlayer {
         return null;
     }
 
-    /**
-     * Checks row for free field:
-     * Diagonal X:
-     * x
-     *   x
-     *     x
-     *
-     * @return found empty field on diagonal
-     */
     private Dimension searchRowForFreeXDiagonalSpot() {
         for (int i = 0; i < 3; i++) {
             if (board.isFieldEmpty(new Dimension(i, i))) {
@@ -99,15 +74,6 @@ public class MediumAI extends AIPlayer {
         return null;
     }
 
-    /**
-     * Checks row for free field:
-     * Diagonal Y:
-     *     y
-     *   y
-     * y
-     *
-     * @return found empty field on diagonal
-     */
     private Dimension searchRowForFreeYDiagonalSpot() {
         for (int i = 0; i < 3; i++) {
             if (board.isFieldEmpty(new Dimension(2 - i, i))) {
