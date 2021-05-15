@@ -4,6 +4,9 @@ import tictactoe.gameboard.Board;
 
 import java.awt.*;
 
+/**
+ * Easy AI that tries not to win or prevent enemy from winning
+ */
 public class EasyAI extends AIPlayer {
 
     public EasyAI(Board board, char sign) {

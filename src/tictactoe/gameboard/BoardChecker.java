@@ -3,9 +3,17 @@ package tictactoe.gameboard;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Helper method that find frequency of specified signs at different angles
+ * and empty fields of board matrix 3x3.
+ */
 public class BoardChecker {
     private final Board board;
 
+    /**
+     * Creates helper class with linked board.
+     * @param board board to search in
+     */
     public BoardChecker(Board board) {
         this.board = board;
     }
@@ -104,6 +112,9 @@ public class BoardChecker {
                 || diagonalYCheck(mark) == 3;
     }
 
+    /**
+     * @return coordinates with empty fields
+     */
     public ArrayList<Dimension> getEmptySpots() {
         ArrayList<Dimension> emptySpots = new ArrayList<>();
         for (int i = 0; i < 3; i++) {

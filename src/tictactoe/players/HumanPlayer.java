@@ -1,11 +1,13 @@
 package tictactoe.players;
 
-import tictactoe.game.Game;
 import tictactoe.gameboard.Board;
 import tictactoe.ui.CommandLineUI;
 
 import java.awt.*;
 
+/**
+ * Human player that uses CLI to enter coordinates
+ */
 public class HumanPlayer implements Player {
     private final Board board;
     private final char sign;
@@ -29,6 +31,21 @@ public class HumanPlayer implements Player {
      * Ask user for coordinates,
      * Check is input valid - have two digits with space between them,
      * digits are in range 1 - 3 and field is not occupied
+     *
+     * Valid examples:
+     * <ul>
+     *     <li>1 3</li>
+     *     <li>2 2</li>
+     *     <li>3 2</li>
+     * </ul>
+     * Invalid examples:
+     * <ul>
+     *     <li>0 1</li>
+     *     <li>4 2</li>
+     *     <li>a 2</li>
+     *     <li>11</li>
+     *     <li>1||2</li>
+     * </ul>
      *
      * @return correct coordinates
      */

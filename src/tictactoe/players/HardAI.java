@@ -5,6 +5,9 @@ import tictactoe.gameboard.Board;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * HardAI class that uses MinMax Algorithm to never loose
+ */
 public class HardAI extends AIPlayer {
 
     public HardAI(Board board, char sign) {

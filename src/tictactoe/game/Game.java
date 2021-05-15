@@ -7,12 +7,22 @@ import tictactoe.ui.CommandLineUI;
 
 import java.util.Queue;
 
+/**
+ * Game creates board and initializes UI.
+ * After invoking start function perform setup and starts the game of TicTacToe till someone wins
+ * or it's a draw.
+ */
 public class Game {
     private final BoardChecker boardChecker;
     private final CommandLineUI ui;
     private Queue<Player> players;
     private GameState state;
 
+    /**
+     * Creates empty board.
+     * Initializes helper BoardChecker to check board.
+     * Initializes UI to setup players.
+     */
     public Game() {
         Board board = new Board();
         boardChecker = new BoardChecker(board);

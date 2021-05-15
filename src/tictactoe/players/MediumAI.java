@@ -4,6 +4,9 @@ import tictactoe.gameboard.Board;
 
 import java.awt.*;
 
+/**
+ * Medium AI that tries to block enemy if is close to winning or makes winning move when there is an occasion
+ */
 public class MediumAI extends AIPlayer {
 
     public MediumAI(Board board, char sign) {

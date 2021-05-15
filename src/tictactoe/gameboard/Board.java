@@ -2,14 +2,27 @@ package tictactoe.gameboard;
 
 import java.awt.*;
 
+/**
+ * Board can hold signs in matrix 3x3
+ */
 public class Board {
     private final char[][] board;
 
+    /**
+     * Initializes with empty fields
+     */
     public Board() {
         this.board = new char[3][3];
         initializeTable("_________");
     }
 
+    /**
+     * Returns sign at field
+     *
+     * @param height height value
+     * @param width width value
+     * @return sign at field[height][width]
+     */
     public char at(int height, int width) {
         return board[height][width];
     }

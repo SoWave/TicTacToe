@@ -8,15 +8,45 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * Command Line User Interface that lets user to setup game via command line
+ */
 public class CommandLineUI {
     public static final Scanner INPUT_SCANNER = new Scanner(System.in);
     private String command;
     private final Board board;
 
+    /**
+     * Creates Command Line User Interface
+     *
+     * @param board board to link with players
+     * @see CommandLineUI#setup() setup players
+     */
     public CommandLineUI(Board board) {
         this.board = board;
     }
 
+    /**
+     * Setup players.
+     * <p>
+     * User must pass a command that is valid:
+     * <ul>
+     *     <li>exit - returns null what signals game should end.</li>
+     *     <li>start {player type} {player type}</li>
+     * </ul>
+     * Player types are:
+     * <ul>
+     *     <li>user - human player</li>
+     *     <li>easy - easy AI</li>
+     *     <li>medium - medium AI</li>
+     *     <li>hard - hard AI</li>
+     * </ul>
+     * </p>
+     *
+     * @return queue of players
+     * @see PlayerFactory#types
+     * @see PlayerFactory#createPlayer(String, Board, char) create player
+     */
     public Queue<Player> setup() {
         while (true) {
             System.out.println("Input command:");
