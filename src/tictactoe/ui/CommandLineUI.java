@@ -1,5 +1,6 @@
 package tictactoe.ui;
 
+import tictactoe.game.GameState;
 import tictactoe.gameboard.Board;
 import tictactoe.players.Player;
 import tictactoe.players.PlayerFactory;
@@ -91,6 +92,25 @@ public class CommandLineUI {
             System.out.println(sb);
         }
         System.out.println("---------");
+    }
+
+    /**
+     * Send last message when game ends.
+     * @param state state that decides what message should be shown
+     */
+    public void endMessage(GameState state) {
+        switch (state) {
+            case XWIN:
+                System.out.println("X Wins");
+                break;
+            case OWIN:
+                System.out.println("O Wins");
+                break;
+            case DRAW:
+                System.out.println("Draw");
+            default:
+                break;
+        }
     }
 
     private boolean isCommandValid() {

@@ -51,6 +51,8 @@ public class Game {
 
             checkStateOfGame();
         }
+
+        ui.endMessage(state);
     }
 
     private void playTurn() {
@@ -63,13 +65,11 @@ public class Game {
 
     private void checkStateOfGame() {
         if (boardChecker.isWinning('X')) {
-            System.out.println("X wins");
             state = GameState.XWIN;
         } else if (boardChecker.isWinning('O')) {
-            System.out.println("O wins");
             state = GameState.OWIN;
         } else if (boardChecker.getEmptySpots().size() == 0) {
-            System.out.println("Draw");
+            state = GameState.DRAW;
         }
     }
 }
