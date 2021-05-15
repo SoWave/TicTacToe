@@ -24,7 +24,6 @@ public class HardAI extends AIPlayer {
     @Override
     public Dimension findField() {
         ArrayList<Dimension> availableSpots = boardChecker.getEmptySpots();
-        // set marks to process in algorithm
 
         int bestScore = -1000;
         Dimension move = new Dimension();
@@ -39,7 +38,6 @@ public class HardAI extends AIPlayer {
                 move = spot;
             }
         }
-
         return move;
     }
 
