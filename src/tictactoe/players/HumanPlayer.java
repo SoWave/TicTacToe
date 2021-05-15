@@ -21,7 +21,6 @@ public class HumanPlayer implements Player {
     public void makeMove() {
         Dimension coordinates = findField();
         board.setField(coordinates, sign);
-        board.drawTable();
     }
 
     /**

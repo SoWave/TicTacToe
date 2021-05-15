@@ -39,6 +39,7 @@ public class Game {
     private void playGame() {
         for (int i = 0; i < 9; i++) {
             playTurn();
+            board.drawTable();
 
             checkStateOfGame();
             if (state != GameState.IN_GAME) {

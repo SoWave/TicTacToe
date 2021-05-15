@@ -33,7 +33,6 @@ public abstract class AIPlayer implements Player {
         Dimension coordinates = findField();
 
         board.setField(coordinates, sign);
-        board.drawTable();
     }
 
     /**
