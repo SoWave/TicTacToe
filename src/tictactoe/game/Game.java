@@ -20,32 +20,26 @@ public class Game {
     }
 
     /**
-     * Initialize the game,
-     * Create AI enemy,
-     * Set every field empty,
-     * draw board and start a game.
+     * Setup the game:
+     * Setup players, if players equals null, that indicates user want to exit.
+     * draw board, set state to IN_GAME  and start the game.
+     * Continue until game state changes from IN_GAME.
      */
     public void startGame() {
-        if (ui.setup()) {
-            players = ui.getPlayers();
+        players = ui.setup();
 
-            ui.drawTable();
+        if (players == null) { return; }
 
-            state = GameState.IN_GAME;
-            playGame();
-        }
-    }
+        ui.drawTable();
 
-    private void playGame() {
-        for (int i = 0; i < 9; i++) {
+        state = GameState.IN_GAME;
+
+        while (state == GameState.IN_GAME) {
             playTurn();
 
             ui.drawTable();
 
             checkStateOfGame();
-            if (state != GameState.IN_GAME) {
-                break;
-            }
         }
     }
 

@@ -17,23 +17,25 @@ public class CommandLineUI {
         this.board = board;
     }
 
-    public boolean setup() {
+    public Queue<Player> setup() {
         while (true) {
             System.out.println("Input command:");
             command = INPUT_SCANNER.nextLine();
 
             if (command.equals("exit")) {
-                return false;
+                return null;
             }
             if (isCommandValid()) {
                 break;
             }
             System.out.println("Bad parameters!");
         }
-        return true;
+        return getPlayers();
     }
 
-    public Queue<Player> getPlayers() {
+    private Queue<Player> getPlayers() {
+        if (command == null) { throw new IllegalStateException("Command not set"); }
+
         String type1 = command.split(" ")[1];
         String type2 = command.split(" ")[2];
 
