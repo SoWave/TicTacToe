@@ -25,7 +25,7 @@ public class CommandLineUI {
             if (command.equals("exit")) {
                 return false;
             }
-            if (isCommandValid(command)) {
+            if (isCommandValid()) {
                 break;
             }
             System.out.println("Bad parameters!");
@@ -61,7 +61,7 @@ public class CommandLineUI {
         System.out.println("---------");
     }
 
-    private boolean isCommandValid(String command) {
+    private boolean isCommandValid() {
         String[] commandLine = command.split(" ");
         if (commandLine.length == 3) {
             return commandLine[0].equals("start")
