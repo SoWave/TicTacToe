@@ -30,14 +30,14 @@ public class Game {
 
         if (players == null) { return; }
 
-        ui.drawTable();
+        ui.displayBoard();
 
         state = GameState.IN_GAME;
 
         while (state == GameState.IN_GAME) {
             playTurn();
 
-            ui.drawTable();
+            ui.displayBoard();
 
             checkStateOfGame();
         }

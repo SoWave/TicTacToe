@@ -49,7 +49,7 @@ public class CommandLineUI {
     /**
      * Draw current state of table
      */
-    public void drawTable() {
+    public void displayBoard() {
         System.out.println("---------");
         for (int i = 0; i < 3; i++) {
             StringBuilder sb = new StringBuilder();
