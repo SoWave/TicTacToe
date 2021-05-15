@@ -10,23 +10,6 @@ public class Board {
         initializeTable("_________");
     }
 
-    /**
-     * Draw current state of table
-     */
-    public void drawTable() {
-        System.out.println("---------");
-        for (int i = 0; i < 3; i++) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("| ");
-            for (int j = 0; j < 3; j++) {
-                sb.append(board[i][j]).append(" ");
-            }
-            sb.append("|");
-            System.out.println(sb);
-        }
-        System.out.println("---------");
-    }
-
     public char at(int height, int width) {
         return board[height][width];
     }
