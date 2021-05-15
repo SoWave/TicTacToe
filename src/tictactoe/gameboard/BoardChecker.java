@@ -1,5 +1,8 @@
 package tictactoe.gameboard;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 public class BoardChecker {
     private final Board board;
 
@@ -99,5 +102,17 @@ public class BoardChecker {
 
         return diagonalXCheck(mark) == 3
                 || diagonalYCheck(mark) == 3;
+    }
+
+    public ArrayList<Dimension> getEmptySpots() {
+        ArrayList<Dimension> emptySpots = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board.at(i, j) == ' ') {
+                    emptySpots.add(new Dimension(j, i));
+                }
+            }
+        }
+        return emptySpots;
     }
 }

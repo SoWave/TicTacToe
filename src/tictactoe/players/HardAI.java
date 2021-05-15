@@ -20,7 +20,7 @@ public class HardAI extends AIPlayer {
      */
     @Override
     public Dimension findField() {
-        ArrayList<Dimension> availableSpots = getEmptySpots(board);
+        ArrayList<Dimension> availableSpots = boardChecker.getEmptySpots();
         // set marks to process in algorithm
 
         int bestScore = -1000;
@@ -41,7 +41,7 @@ public class HardAI extends AIPlayer {
     }
 
     private int miniMaxAlgorithm(Board board, boolean isMaximizing) {
-        ArrayList<Dimension> availableSpots = getEmptySpots(board);
+        ArrayList<Dimension> availableSpots = boardChecker.getEmptySpots();
 
         if (boardChecker.isWinning(sign)) {
             return 10;
@@ -72,17 +72,5 @@ public class HardAI extends AIPlayer {
             }
         }
         return bestScore;
-    }
-
-    private ArrayList<Dimension> getEmptySpots(Board board) {
-        ArrayList<Dimension> emptySpots = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (board.at(i, j) == ' ') {
-                    emptySpots.add(new Dimension(j, i));
-                }
-            }
-        }
-        return emptySpots;
     }
 }

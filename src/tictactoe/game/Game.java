@@ -1,4 +1,4 @@
-package tictactoe;
+package tictactoe.game;
 
 import tictactoe.gameboard.Board;
 import tictactoe.gameboard.BoardChecker;
@@ -14,6 +14,7 @@ public class Game {
     private final Board board;
     private final BoardChecker boardChecker;
     private Queue<Player> players;
+    private GameState state;
 
     public Game() {
         this.board = new Board();
@@ -30,23 +31,19 @@ public class Game {
         if (initializeCommand()) {
             board.drawTable();
 
+            state = GameState.IN_GAME;
             playGame();
         }
     }
 
     private void playGame() {
-        boolean inGame = true;
         for (int i = 0; i < 9; i++) {
             playTurn();
 
-            inGame = checkStateOfGame();
-            if (!inGame) {
+            checkStateOfGame();
+            if (state != GameState.IN_GAME) {
                 break;
             }
-        }
-
-        if (inGame) {
-            System.out.println("Draw");
         }
     }
 
@@ -99,19 +96,15 @@ public class Game {
         }
     }
 
-    private boolean checkStateOfGame() {
-        boolean inGame = true;
-        boolean xWins = boardChecker.isWinning('X');
-        boolean oWins = boardChecker.isWinning('O');
-
-        if (xWins) {
+    private void checkStateOfGame() {
+        if (boardChecker.isWinning('X')) {
             System.out.println("X wins");
-            inGame = false;
-        } else if (oWins) {
+            state = GameState.XWIN;
+        } else if (boardChecker.isWinning('O')) {
             System.out.println("O wins");
-            inGame = false;
+            state = GameState.OWIN;
+        } else if (boardChecker.getEmptySpots().size() == 0) {
+            System.out.println("Draw");
         }
-
-        return inGame;
     }
 }

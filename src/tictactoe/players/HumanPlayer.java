@@ -1,6 +1,6 @@
 package tictactoe.players;
 
-import tictactoe.Game;
+import tictactoe.game.Game;
 import tictactoe.gameboard.Board;
 import java.awt.*;
 
